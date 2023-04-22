@@ -1,0 +1,21 @@
+{
+    "name": "tiago/ajax-php",
+    "autoload": {
+        "psr-4": {
+            "Tiago\\AjaxPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tiagokochem",
+            "email": "tiagok989@gmail.com"
+        }
+    ],
+    "autoload": {
+
+        "psr-4": {
+            "app\\": "app"
+        }
+
+    }
+}
