@@ -16,10 +16,14 @@ window.onload = function () {
 
         // console.log('teste');
 
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
+    
 
-                var users = JSON.parse(this.responseText);
+        xhttp.onreadystatechange = function () {
+
+            if(this.readyState == 4 && this.status == 200){
+
+
+            var users = JSON.parse(this.responseText);
 
                 // console.log(users);
 
