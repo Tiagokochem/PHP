@@ -1,4 +1,4 @@
-// $(document).ready(function()) = (window.onload = function)
+s// $(document).ready(function()) = (window.onload = function)
 
 
 
@@ -8,25 +8,24 @@ window.onload = function () {
 
     var div_users = document.querySelector("#div_users");
 
-    var xhttp = new XMLHttpRequest();
 
     // console.log(xhttp);
 
     btn_users.onclick = function () {
 
         // console.log('teste');
+        xmlHttpGet('ajax/user', function(){
 
-    
+            beforeSend(function(){
 
-        xhttp.onreadystatechange = function () {
+                div_users.innerHTML = `<i class="fa fa-refresh fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span>`;
 
-            if(this.readyState == 4 && this.status == 200){
+            });
 
+            sucess(function(){
 
-            var users = JSON.parse(this.responseText);
-
-                // console.log(users);
-
+                console.log(JSON_parse(xhttp.responseText));
+               
                 var table = `<class='table table striped'>`;
                 table += `<thead><tr><td>ID</td><td>Nome</td><td>Email</td></tr></thead>`;
 
@@ -51,14 +50,18 @@ window.onload = function () {
                 table += `</table>`;
 
                 div_users.innerHTML = table;
-            }
-        }
 
-        xhttp.open('GET', 'ajax/user.php', true);
+            });
 
-        xhttp.send();
+            error(function(){
+
+                div_users.innerHTML = 'Ocorreu um erro';
+
+
+            });
+
+        }, '?id=1');
 
     }
-
 
 }

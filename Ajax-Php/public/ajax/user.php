@@ -14,5 +14,7 @@ sleep(5);
 
 // echo 'teste dentro do user';
 
+$id = $_GET['id'];
 
-echo json_encode($user->all());
+
+echo json_encode($user->find('id', $id));
